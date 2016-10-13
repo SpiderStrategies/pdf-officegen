@@ -1,0 +1,35 @@
+{
+  "name": "pdf-powerpoint",
+  "version": "0.1.0",
+  "description": "Converts one or more PDFs into a powerpoint with one pdf page per slide",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpiderStrategies/pdf-powerpoint.git"
+  },
+  "keywords": [
+    "pdf",
+    "powerpoint",
+    "png",
+    "convert",
+    "image",
+    "ppt",
+    "pptx"
+  ],
+  "author": "Nathan Good (codecounselor)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpiderStrategies/pdf-powerpoint/issues"
+  },
+  "homepage": "https://github.com/SpiderStrategies/pdf-powerpoint#readme",
+  "devDependencies": {
+    "ava": "^0.16.0"
+  },
+  "dependencies": {
+    "officegen": "^0.4.0",
+    "pdf2images-multiple": "^1.0.16"
+  }
+}
