@@ -5,6 +5,13 @@ node_js:
 - '5'
 - '4'
 
+addons:
+  apt:
+    packages:
+      - imagemagick
+      - ghostscript
+      - poppler-utils
+
 install:
   - npm install
 script:
