@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/SpiderStrategies/pdf-powerpoint.svg?branch=master)](https://travis-ci.org/SpiderStrategies/pdf-powerpoint)
+[![npm version](https://badge.fury.io/js/pdf-powerpoint.svg)](https://badge.fury.io/js/pdf-powerpoint)
+
 ## PDF to Powerpoint Converter
 
 A NPM module that accepts one or more PDF files and converts them into Powerpoint slides.
