@@ -6,6 +6,9 @@ A NPM module that accepts one or more PDF files and converts them into Powerpoin
 - Each single images is added to a slide in the powerpoint presentation.
 - Slides are in the order of the PDFs passed in the array
 
+**Supported Runtimes:**  Node > 5.10.0
+
+
 ### Usage
 
 ```
@@ -14,8 +17,7 @@ const p = new Powerpoint()
 
 
 p.convertPDFToImages('input.pdf', 'output.pptx', (result) => {
-  //Do something 
+  //Do something with the result (filepath to output) 
 })
-
   
 ```
