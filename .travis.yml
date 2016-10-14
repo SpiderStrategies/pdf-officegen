@@ -24,3 +24,4 @@ deploy:
   on:
     tags: true
     repo: SpiderStrategies/pdf-powerpoint
+    node: '6'
