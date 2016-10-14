@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+- '6'
+- '5'
+- '4'
+
+install:
+  - npm install
+script:
+  - npm test
+
+deploy:
+  provider: npm
+  email: codecounselor@gmail.com
+  api_key:
+    secure: TJkWBGC4d4S5LGEwqSXK+cKvwT3z68g2VwV7PgTJBTX1h7Yv4PvE6VJzYnSHNDTLqd2aXs6oFCUNphSm9+HbEb2osC5N8J6DNYzDecWgcm2YsROGxkJbD/w5f2EI2IsJJsZefM4ybUn1lh9DypLBdIVebbwas5ySvU2Gzuq0cPsH4IPuDF5L3yVKBJXBZsEhf+3DQXIFjN7LpYWmqbC4ptDDhECYgS9ma5PeDq6lGRkDmCP50WWjgw9uiGhF0av7QRu9xhHpzrF2vwd2NNwQ7x7NyO1KXCkjvy1NS3Ro+n0i7O2+xPds1YZ6sdaOfvyAiNRck2Of6LJCreyoSNkuS4Gc97K0a2+k/XhIA7SHH31gn4rapyPfX5+dhMMOzgmU3zahnh07XvI17Z5jlVI44bSllM53kFQbSL/GxtBQMEiW5EOAc1aSyQvwbSCiAzlWytHGfmJuUM/+XD4jCuWUZOI7buiVAdSkUWIjVLRUn3exboxGf4Io+A+YovpHeJi4yo+Il9BYVYLhNAK+32yCzlot0u5rNMlLj84T2w9HPLQ2DEiCjYNTzPh3tZblBQr0Ni1hLcFhAiW0HxNxoEg06imOxXrJXi4QdG+nPI8FPSfQSluI23GD4WznbgOcWWU6w2lfWWkfjRyzxyBDplvwVLJl4tReCUreeI8m0wuvIo4=
+  on:
+    tags: true
+    repo: SpiderStrategies/pdf-powerpoint
