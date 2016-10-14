@@ -4,7 +4,9 @@
   "description": "Converts one or more PDFs into a powerpoint with one pdf page per slide",
   "main": "index.js",
   "scripts": {
-    "test": "DEBUG='app:*' ava"
+    "lint": "standard",
+    "fix": "standard --fix",
+    "test": "standard && DEBUG='app:*' ava"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,8 @@
   },
   "homepage": "https://github.com/SpiderStrategies/pdf-powerpoint#readme",
   "devDependencies": {
-    "ava": "^0.16.0"
+    "ava": "^0.16.0",
+    "standard": "^8.4.0"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
