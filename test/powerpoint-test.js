@@ -12,3 +12,13 @@ test.cb('image is resized to fit on slide', t => {
     t.end()
   })
 })
+
+test('Convert options do not allow density > 300', t => {
+  const o = p._getConvertOptions({ convertOptions: { 'density': 600 } })
+  t.is(o['-density'], 300)
+})
+
+test('Convert options use density=72 if none is set', t => {
+  const o = p._getConvertOptions({})
+  t.is(o['-density'], 72)
+})
