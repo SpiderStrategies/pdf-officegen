@@ -21,7 +21,7 @@ import {Powerpoint} from 'pdf-powerpoint'
 const p = new Powerpoint()
 
 
-p.convertPDFToImages('input.pdf', 'output.pptx', (result) => {
+p.convertPDFToPowerpoint('input.pdf', (err, result) => {
   //Do something with the result (filepath to output) 
 })
   
