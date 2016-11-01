@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "standard",
     "fix": "standard --fix",
-    "test": "standard && DEBUG='app:*' ava"
+    "test": "standard && DEBUG='app:*' ava | tap-diff"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
   "homepage": "https://github.com/SpiderStrategies/pdf-powerpoint#readme",
   "devDependencies": {
     "ava": "^0.16.0",
-    "standard": "^8.4.0"
+    "standard": "^8.4.0",
+    "tap-diff": "^0.1.1"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
