@@ -4,7 +4,8 @@ import Powerpoint from '../lib/powerpoint'
 const p = new Powerpoint()
 
 test.cb('image is resized to fit on slide', t => {
-  p.convertPDFToPowerpoint('google-l.pdf', '../resize-test.pptx', (err, result) => {
+  const options = {}
+  p.convertPDFToPowerpoint('google-l.pdf', options, (err, result) => {
     if (err) {
       t.fail('Did not complete successfully')
       console.log(err)
