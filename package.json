@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "standard",
     "fix": "standard --fix",
-    "test": "standard && DEBUG='app:*' ava | tap-diff"
+    "test": "standard && DEBUG='app:*' ava **/*-test.js | tap-diff",
+    "testWin": "standard && ava **/*-test.js | tap-diff"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,6 @@
     "debug": "^2.2.0",
     "eventemitter2": "^2.1.3",
     "officegen": "^0.4.0",
-    "pdf2images-multiple": "^1.0.16",
     "rimraf": "^2.5.4"
   }
 }

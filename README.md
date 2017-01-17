@@ -46,14 +46,12 @@ The [EventEmitter2](https://www.npmjs.com/package/eventemitter2) library is used
  can write a single listener for all events if you wish.
  
 Events emit an object that may have the following properties:
-* `error` - if an error occured
+* `error` - if an error occurred
 * `time` - if the event marks the end of a corresponding start event
 * `output` - If there is a PNG or PPTX file generated from the event
 
 #### Event Names
 
-1. `err.png.single`
-1. `done.png.single` - `output` is the path to the png file
 1. `err.png.all` 
 1. `done.png.all` - `output` is an array of paths to images generated from PDF
 1. `done.pptx.creation` - powerpoint is complete in memory, all images added to slides
@@ -77,6 +75,8 @@ imageMagick: convert -density 72 -quality 100 -verbose  '/var/folders/dr/f1q4znd
 ghostScript:'gs' -q -dQUIET -dSAFER -dBATCH -dNOPAUSE -dNOPROMPT -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 '-sDEVICE=pngalpha' -dTextAlphaBits=4 -dGraphicsAlphaBits=4 '-r72x72' -dFirstPage=5 -dLastPage=5 '-sOutputFile=/var/tmp/magick-94224ozuZS3iFphAj%d' '-f/var/tmp/magick-94224zWXBFMw8ZiEA' '-f/var/tmp/magick-9422413LS3T1dhoL4'
 
 #### So GhostScript is used directly
+
+If you have GhostScript installed globally on your system it should be located automatically, but if not you can provide the path to the GhostScript executable by setting the `PDF_PPT_GSPATH` environment variable.
 
 [GhostScript Option Documentation](https://ghostscript.com/doc/current/Use.htm)
 
