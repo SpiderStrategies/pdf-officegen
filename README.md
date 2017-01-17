@@ -7,15 +7,15 @@
 
 A NPM module that accepts one or more PDF files and converts them into Powerpoint slides.
 
-- ImageMagick is used to transform each page of a PDF into a PNG image.
+- GhostScript is used to transform each page of a PDF into a PNG image.
 - Each single images is added to a slide in the powerpoint presentation.
 - Slides are in the order of the PDFs passed in the array
 
 **Supported Runtimes:**  Node > 5.10.0
 
 **Required packages:** 
-- Debian: `apt-get install -y imagemagick ghostscript poppler-utils GraphicsMagick`
-- OSX: `brew install imagemagick poppler`
+- Debian: `apt-get install -y ghostscript`
+- OSX: `brew install ghostscript`
 
 ### Usage
 
@@ -34,7 +34,7 @@ p.convertPDFToPowerpoint('input.pdf', [options,] (err, result) => {
 * `stagingDir` - This is where the pptx file will be generated.  
   - Images go in `stagingDir/img` and are automatically removed once the powerpoint file is generated.
   - If not provided the default is to use `fs.mkdtemp('${os.tmpdir()}/pdf_ppt_')` to generate a random temp directory
-* `convertOptions` - These are used for ImageMagick conversion
+* `convertOptions` - These are used for Ghostscript conversion
   - `density` - specifies the PPI setting for the output image
     - default: 72, maximum value allowed is 300
   
@@ -70,12 +70,13 @@ This can be turned on by setting `DEBUG=pdfppt:*`, read more about [Debug here](
 ### Implementation
  
 #### ImageMagick delegates to GhostScript for PDF -> PNG conversion
-imageMagick: convert -density 72 -quality 100 -verbose  '/var/folders/dr/f1q4znd96xv8wp82y4cfgg700000gn/T/833198680xmyTzU/output.pdf[4]' '/var/folders/dr/f1q4znd96xv8wp82y4cfgg700000gn/T/pdf_ppt_Tl9eSm/img/output-4.png'
 
-ghostScript:'gs' -q -dQUIET -dSAFER -dBATCH -dNOPAUSE -dNOPROMPT -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 '-sDEVICE=pngalpha' -dTextAlphaBits=4 -dGraphicsAlphaBits=4 '-r72x72' -dFirstPage=5 -dLastPage=5 '-sOutputFile=/var/tmp/magick-94224ozuZS3iFphAj%d' '-f/var/tmp/magick-94224zWXBFMw8ZiEA' '-f/var/tmp/magick-9422413LS3T1dhoL4'
+- ImageMagick: `convert -density 72 -quality 100 -verbose  '/var/folders/dr/f1q4znd96xv8wp82y4cfgg700000gn/T/833198680xmyTzU/output.pdf[4]' '/var/folders/dr/f1q4znd96xv8wp82y4cfgg700000gn/T/pdf_ppt_Tl9eSm/img/output-4.png'`
+- GhostScript: `'gs' -q -dQUIET -dSAFER -dBATCH -dNOPAUSE -dNOPROMPT -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 '-sDEVICE=pngalpha' -dTextAlphaBits=4 -dGraphicsAlphaBits=4 '-r72x72' -dFirstPage=5 -dLastPage=5 '-sOutputFile=/var/tmp/magick-94224ozuZS3iFphAj%d' '-f/var/tmp/magick-94224zWXBFMw8ZiEA' '-f/var/tmp/magick-9422413LS3T1dhoL4'`
 
-#### So GhostScript is used directly
+#### So GhostScript is used directly 
 
+*Note:* You must ensure that GhostScript is installed on your system, it is not included with this package.
 If you have GhostScript installed globally on your system it should be located automatically, but if not you can provide the path to the GhostScript executable by setting the `PDF_PPT_GSPATH` environment variable.
 
 [GhostScript Option Documentation](https://ghostscript.com/doc/current/Use.htm)
@@ -87,5 +88,3 @@ The following command is generated: `gs -q -dQUIET -sDEVICE=pngalpha -r150 -o ou
 - `-dQUIET` Suppresses routine information comments on standard output.
 - `-sDEVICE=pngalpha` 
 - `-r[XResxYRes]` Useful for controlling the density of pixels when rasterizing to an image file. It is the requested number of dots (or pixels) per inch. Where the two resolutions are same, as is the common case, you can simply use -rres.
-
-*Note:* You must ensure that GhostScript is installed on your system.
