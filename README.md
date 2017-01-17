@@ -68,3 +68,24 @@ Debug is used for logging and there are three namespaces you can enable.
 * pdfppt:debug
 
 This can be turned on by setting `DEBUG=pdfppt:*`, read more about [Debug here](https://www.npmjs.com/package/debug)
+
+### Implementation
+ 
+#### ImageMagick delegates to GhostScript for PDF -> PNG conversion
+imageMagick: convert -density 72 -quality 100 -verbose  '/var/folders/dr/f1q4znd96xv8wp82y4cfgg700000gn/T/833198680xmyTzU/output.pdf[4]' '/var/folders/dr/f1q4znd96xv8wp82y4cfgg700000gn/T/pdf_ppt_Tl9eSm/img/output-4.png'
+
+ghostScript:'gs' -q -dQUIET -dSAFER -dBATCH -dNOPAUSE -dNOPROMPT -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 '-sDEVICE=pngalpha' -dTextAlphaBits=4 -dGraphicsAlphaBits=4 '-r72x72' -dFirstPage=5 -dLastPage=5 '-sOutputFile=/var/tmp/magick-94224ozuZS3iFphAj%d' '-f/var/tmp/magick-94224zWXBFMw8ZiEA' '-f/var/tmp/magick-9422413LS3T1dhoL4'
+
+#### So GhostScript is used directly
+
+[GhostScript Option Documentation](https://ghostscript.com/doc/current/Use.htm)
+
+The following command is generated: `gs -q -dQUIET -sDEVICE=pngalpha -r150 -o outputFile-%d.png`
+
+- As a convenient shorthand you can use the `-o option` followed by the output file specification as discussed above. The -o option also sets the `-dBATCH` and `-dNOPAUSE` options.
+- `-q` Quiet startup: suppress normal startup messages, and also do the equivalent of -dQUIET.
+- `-dQUIET` Suppresses routine information comments on standard output.
+- `-sDEVICE=pngalpha` 
+- `-r[XResxYRes]` Useful for controlling the density of pixels when rasterizing to an image file. It is the requested number of dots (or pixels) per inch. Where the two resolutions are same, as is the common case, you can simply use -rres.
+
+*Note:* You must ensure that GhostScript is installed on your system.
