@@ -52,8 +52,10 @@ Events emit an object that may have the following properties:
 
 #### Event Names
 
+1. `done.gs.convert`- `output` is the GhostScript command that was executed
 1. `err.png.all` 
 1. `done.png.all` - `output` is an array of paths to images generated from PDF
+1. `done.png.clean` - `output` is the image directory that was deleted
 1. `done.pptx.creation` - powerpoint is complete in memory, all images added to slides
 1. `done.pptx.saved` - `output` is the pptFile
 
@@ -61,7 +63,6 @@ Events emit an object that may have the following properties:
 
 Debug is used for logging and there are three namespaces you can enable.
 
-* pdfppt:error
 * pdfppt:app
 * pdfppt:debug
 
