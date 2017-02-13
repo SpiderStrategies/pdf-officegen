@@ -1,6 +1,6 @@
 {
   "name": "pdf-powerpoint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts one or more PDFs into a powerpoint with one pdf page per slide",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/SpiderStrategies/pdf-powerpoint#readme",
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.18.0",
     "standard": "^8.4.0",
     "tap-diff": "^0.1.1"
   },
