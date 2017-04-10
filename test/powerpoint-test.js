@@ -15,6 +15,38 @@ test.skip.cb('image is resized to fit on slide', t => {
   })
 })
 
+test('Uses default slide dimensions if they are passed in undefined', t => {
+  var dimensions = {
+    height: undefined,
+    width: undefined,
+    type: undefined
+  }
+  let p = new Powerpoint({dimensions})
+  t.is(p.options.dimensions.width, 800)
+  t.is(p.options.dimensions.height, 600)
+  t.is(p.options.dimensions.type, 'screen4x3')
+})
+
+test('Uses slide dimensions if they are passed as options', t => {
+  var dimensions = {
+    height: 1000
+  }
+  let p = new Powerpoint({dimensions})
+  t.is(p.options.dimensions.width, 800)
+  t.is(p.options.dimensions.height, 1000)
+  t.is(p.options.dimensions.type, 'screen4x3')
+})
+
+test('sets cropLastImage to false for backwards compatibility', t => {
+  let p = new Powerpoint()
+  t.is(p.options.cropLastImage, false)
+})
+
+test('allows cropLastImage to be set in config', t => {
+  let p = new Powerpoint({cropLastImage: true})
+  t.is(p.options.cropLastImage, true)
+})
+
 test('Convert options do not allow density > 300', t => {
   const o = p._getConvertOptions({ convertOptions: { 'density': 600 } })
   t.is(o['density'], 300)
