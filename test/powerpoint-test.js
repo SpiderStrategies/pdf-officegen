@@ -35,9 +35,9 @@ test('sort images', t => {
 test('_getLastImageFiles with different files', t => {
   // Only precondition should be that the images are ordered for each file
   const images = ['img/img-1-1.png',
-                  'img/img-1-100.png',
-                  'img/img-21-9.png',
-                  'img/img-2-1.png']
+    'img/img-1-100.png',
+    'img/img-21-9.png',
+    'img/img-2-1.png']
   const lastImages = p._getLastImageFiles(images)
   console.log(lastImages)
   t.deepEqual(lastImages, ['img/img-1-100.png', 'img/img-21-9.png', 'img/img-2-1.png'])
@@ -46,8 +46,8 @@ test('_getLastImageFiles with different files', t => {
 test('_getLastImageFiles with same file', t => {
   // Only precondition should be that the images are ordered for each file
   const images = ['img/img-1-0.png',
-                  'img/img-1-1.png',
-                  'img/img-1-2.png']
+    'img/img-1-1.png',
+    'img/img-1-2.png']
   const lastImages = p._getLastImageFiles(images)
   console.log(lastImages)
   t.deepEqual(lastImages, ['img/img-1-2.png'])
