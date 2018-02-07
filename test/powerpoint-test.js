@@ -57,10 +57,10 @@ test('Convert options use density=72 if none is set', t => {
   t.is(o['density'], 72)
 })
 
-test('sort images', t => {
+test('sort pages', t => {
   // 1-100 to ensure both the doc and page are sorted independently
   const images = ['img/img-21-9.png', 'img/img-1-1.png', 'img/img-1-100.png']
-  const sorted = p._sortImages(images)
+  const sorted = p._sortPages(images)
   t.deepEqual(sorted, ['img/img-1-1.png', 'img/img-1-100.png', 'img/img-21-9.png'])
 })
 
