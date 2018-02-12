@@ -1,6 +1,6 @@
 {
   "name": "pdf-powerpoint",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Converts one or more PDFs into a powerpoint with one pdf page per slide",
   "main": "index.js",
   "scripts": {
