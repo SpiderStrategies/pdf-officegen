@@ -1,15 +1,20 @@
 import {test} from 'ava'
 import Engine from '../lib/engine'
 
-const engine = new Engine({engine: ''})
+let engine
+
+test.beforeEach(t => {
+  engine = new Engine({engine: ''})
+})
 
 test('Convert options do not allow density > 300', t => {
+  engine = new Engine({ convertOptions: { 'density': 600 } })
   const o = engine._getConvertOptions({ convertOptions: { 'density': 600 } })
   t.is(o['density'], 300)
 })
 
 test('Convert options use density=72 if none is set', t => {
-  const o = engine._getConvertOptions({})
+  const o = engine._getConvertOptions()
   t.is(o['density'], 72)
 })
 
