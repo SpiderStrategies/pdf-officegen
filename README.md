@@ -1,11 +1,15 @@
-[![Build Status](https://travis-ci.org/SpiderStrategies/pdf-powerpoint.svg?branch=master)](https://travis-ci.org/SpiderStrategies/pdf-powerpoint)
-[![npm version](https://badge.fury.io/js/pdf-powerpoint.svg)](https://badge.fury.io/js/pdf-powerpoint)
+[![Build Status](https://travis-ci.org/SpiderStrategies/pdf-officegen.svg?branch=master)](https://travis-ci.org/SpiderStrategies/pdf-officegen)
+[![npm version](https://badge.fury.io/js/pdf-officegen.svg)](https://badge.fury.io/js/pdf-officegen)
 
-[![NPM](https://nodei.co/npm/pdf-powerpoint.png?downloads=true&stars=true)](https://nodei.co/npm/pdf-powerpoint/)
+[![NPM](https://nodei.co/npm/pdf-officegen.png?downloads=true&stars=true)](https://nodei.co/npm/pdf-officegen/)
 
 # PDF to Powerpoint Converter
 
-A NPM module that accepts one or more PDF files and converts them into Powerpoint slides.
+A NPM module that accepts one or more PDF files and converts them into one of the following:
+1. Powerpoint slides (.pptx)
+2. Office Word Document (.docx)
+
+**Note:** This module is the successor of [pdf-powerpoint](https://www.npmjs.com/package/pdf-powerpoint)
 
 ### General workflow
 - A rendering engine is used to transform each page of a PDF into a PNG image.
@@ -35,7 +39,7 @@ the content you are converting.
 ## Usage
 
 ```javascript
-import {Powerpoint} from 'pdf-powerpoint'
+import {Powerpoint, Word} from 'pdf-officegen'
 const p = new Powerpoint([options])
 ````
 
@@ -50,7 +54,7 @@ const p = new Powerpoint([options])
 
 
 ```javascript
-p.convertPDFToPowerpoint('input.pdf', [options,] (err, result) => {
+p.convertFromPdf('input.pdf', [options,] (err, result) => {
   //Do something with the result (filepath to output) 
 })
 ```
@@ -85,8 +89,9 @@ Events emit an object that may have the following properties:
 - `err.png.all` 
 - `done.png.all` - `output` is an array of paths to images generated from PDF
 - `done.png.clean` - `output` is the image directory that was deleted
-- `done.pptx.creation` - powerpoint is complete in memory, all images added to slides
-- `done.pptx.saved` - `output` is the pptFile
+- `done.[pptx|docx].creation` - powerpoint is complete in memory, all images added to slides
+- `done.[pptx|docx].saved` - `output` is the pptFile
+- `err.[pptx|docx]` - `error` is the error the was thrown from officegen
 
 ##### Inkscape Engine
 - `done.pdf.separate` - `output` is the command executed
