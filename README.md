@@ -5,7 +5,9 @@
 
 # PDF to Powerpoint Converter
 
-A NPM module that accepts one or more PDF files and converts them into Powerpoint slides.
+A NPM module that accepts one or more PDF files and converts them into one of the following:
+1. Powerpoint slides (.pptx)
+2. Office Word Document (.docx)
 
 ### General workflow
 - A rendering engine is used to transform each page of a PDF into a PNG image.
@@ -35,7 +37,7 @@ the content you are converting.
 ## Usage
 
 ```javascript
-import {Powerpoint} from 'pdf-powerpoint'
+import {Powerpoint, Word} from 'pdf-powerpoint'
 const p = new Powerpoint([options])
 ````
 
@@ -50,7 +52,7 @@ const p = new Powerpoint([options])
 
 
 ```javascript
-p.convertPDFToPowerpoint('input.pdf', [options,] (err, result) => {
+p.convertFromPdf('input.pdf', [options,] (err, result) => {
   //Do something with the result (filepath to output) 
 })
 ```
