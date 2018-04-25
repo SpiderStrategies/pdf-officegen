@@ -1,5 +1,5 @@
 {
-  "name": "pdf-powerpoint",
+  "name": "pdf-officegen",
   "version": "2.0.0",
   "description": "Converts one or more PDFs into a powerpoint or word document with one pdf page per slide/page",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SpiderStrategies/pdf-powerpoint.git"
+    "url": "git+https://github.com/SpiderStrategies/pdf-officegen.git"
   },
   "keywords": [
     "pdf",
@@ -27,9 +27,9 @@
   "author": "Nathan Good (codecounselor)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SpiderStrategies/pdf-powerpoint/issues"
+    "url": "https://github.com/SpiderStrategies/pdf-officegen/issues"
   },
-  "homepage": "https://github.com/SpiderStrategies/pdf-powerpoint#readme",
+  "homepage": "https://github.com/SpiderStrategies/pdf-officegen#readme",
   "devDependencies": {
     "ava": "^0.25.0",
     "standard": "^11.0.1",
