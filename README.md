@@ -87,8 +87,9 @@ Events emit an object that may have the following properties:
 - `err.png.all` 
 - `done.png.all` - `output` is an array of paths to images generated from PDF
 - `done.png.clean` - `output` is the image directory that was deleted
-- `done.pptx.creation` - powerpoint is complete in memory, all images added to slides
-- `done.pptx.saved` - `output` is the pptFile
+- `done.[pptx|docx].creation` - powerpoint is complete in memory, all images added to slides
+- `done.[pptx|docx].saved` - `output` is the pptFile
+- `err.[pptx|docx]` - `error` is the error the was thrown from officegen
 
 ##### Inkscape Engine
 - `done.pdf.separate` - `output` is the command executed
