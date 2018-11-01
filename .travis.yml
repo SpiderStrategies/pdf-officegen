@@ -1,26 +1,22 @@
 language: node_js
-
 node_js:
 - '8'
-
 addons:
   apt:
     packages:
-      - imagemagick
-      - ghostscript
-      - poppler-utils
-
+    - imagemagick
+    - ghostscript
+    - poppler-utils
 install:
-  - npm install
+- npm install
 script:
-  - npm test
-
+- npm test
 deploy:
   provider: npm
   email: codecounselor@gmail.com
   api_key:
-    secure: TJkWBGC4d4S5LGEwqSXK+cKvwT3z68g2VwV7PgTJBTX1h7Yv4PvE6VJzYnSHNDTLqd2aXs6oFCUNphSm9+HbEb2osC5N8J6DNYzDecWgcm2YsROGxkJbD/w5f2EI2IsJJsZefM4ybUn1lh9DypLBdIVebbwas5ySvU2Gzuq0cPsH4IPuDF5L3yVKBJXBZsEhf+3DQXIFjN7LpYWmqbC4ptDDhECYgS9ma5PeDq6lGRkDmCP50WWjgw9uiGhF0av7QRu9xhHpzrF2vwd2NNwQ7x7NyO1KXCkjvy1NS3Ro+n0i7O2+xPds1YZ6sdaOfvyAiNRck2Of6LJCreyoSNkuS4Gc97K0a2+k/XhIA7SHH31gn4rapyPfX5+dhMMOzgmU3zahnh07XvI17Z5jlVI44bSllM53kFQbSL/GxtBQMEiW5EOAc1aSyQvwbSCiAzlWytHGfmJuUM/+XD4jCuWUZOI7buiVAdSkUWIjVLRUn3exboxGf4Io+A+YovpHeJi4yo+Il9BYVYLhNAK+32yCzlot0u5rNMlLj84T2w9HPLQ2DEiCjYNTzPh3tZblBQr0Ni1hLcFhAiW0HxNxoEg06imOxXrJXi4QdG+nPI8FPSfQSluI23GD4WznbgOcWWU6w2lfWWkfjRyzxyBDplvwVLJl4tReCUreeI8m0wuvIo4=
+    secure: XzIF2MwuE5L1ndKZJSvQyG4EqVFN+lDid0cOL+YHWyTS6qZD+nDoD5knHlQFihEvFv+AXqOarLkVu30vZRtffNLsZ4Lvd8B+T6k8AcS2WE0929F3GR2J95BbJpzl6yXZvizBIHF3bMmIWVJr7jDMISc8jcDVD/MW2afkmpzr9NRwc7KEwrlz8ZRuBKExf80Wv5g8IXpEO5eSE6JZnE0Wtbk46rVoHOQtROfLagr3eIGrSAmiIqngl40GZEPuUYB+VXHoUKn3xUajc+ioxy6hP7z2qKGLuGhBzMtfw+WE3/5S5XBeL/+bPi/RnFI6ikCwKlIrnHPFl1u7O/5HHjwHNXUsOBZYpklGm+SgSCbH4FliVg2+/CHAj26lwzM/daIaTe2loDC08rYFBT6fVp+34IxiIDR4K60cbSMvDefFJcmWi4+P1Qv6+byhkaW0kqi+szZSjiE/zCdBacjvM4mRy8k+9eoNhnJVmlP/y721FLgDxwiiNR0FohNLmlpG5ply/xbMIxMSnS7GSYnpD/1aNnNS2BG0KNQ6n2DWvsGpv94RCbVASOkmnaadmH+/5N+kv2O4G9zeHJ1PuPDQzubfiPS8r0RyXPqMApaVc2MRsM7A4U3mCqTjFIIa2nGB1Y0lzJ7jb0CoYyELOvj4lCzRTBXjzxn2q9V/oD+Q+hT/jO0=
   on:
     tags: true
     repo: SpiderStrategies/pdf-officegen
-    node: '8'
+    branch: master
