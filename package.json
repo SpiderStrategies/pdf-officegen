@@ -1,6 +1,6 @@
 {
   "name": "pdf-officegen",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Converts one or more PDFs into a powerpoint or word document with one pdf page per slide/page",
   "main": "index.js",
   "scripts": {
