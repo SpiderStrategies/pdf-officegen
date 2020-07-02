@@ -44,6 +44,10 @@ const p = new Powerpoint([options])
 ````
 
 #### Constructor Options
+* `engine`
+  - 'ghostscript' (default)
+  - 'mupdf'
+  - 'inkscape'
 * `clean` - set to false if intermediate image files should be left on the filesystem.
 * `jobId` - if provided, this will be included in any logging output
 * `cropLastImage` requires ImageMagick `convert` to be on the path.  Will crop the last pdf image before placing on slide, sometimes a line would show up if the last PDF page was a partial page.
@@ -61,10 +65,6 @@ p.convertFromPdf('input.pdf', [options,] (err, result) => {
 
 #### Convert Options
 
-- `engine`
-  - 'ghostscript' (default)
-  - 'mupdf'
-  - 'inkscape'
 - `stagingDir` - This is where the pptx file will be generated.  
   - Images go in `stagingDir/img` and are automatically removed once the powerpoint file is generated.
   - If not provided the default is to use `fs.mkdtemp('${os.tmpdir()}/pdf_ppt_')` to generate a random temp directory
